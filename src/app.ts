@@ -2,6 +2,7 @@
 import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import User from './db/models/user';
+import cors from 'cors'
 
 // Define constants for MongoDB credentials and connection options
 const MONGO_USERNAME = 'Jagadish1122';
@@ -13,6 +14,8 @@ const MONGO_URI = `mongodb+srv://${MONGO_USERNAME}:${encodeURIComponent(MONGO_PA
 // Express setup
 const app = express();
 const port = 3000;
+
+app.use(cors());
 
 // Mongoose connection function
 async function connectToMongoDB() {
